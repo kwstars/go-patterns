@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-type Factory interface {
+type Product interface {
 	Produce()
 }
 
@@ -18,15 +18,15 @@ func (*Banana) Produce() {
 	fmt.Println("开始生产香蕉")
 }
 
-func CreateFactory(fruit string) (factory Factory) {
+func CreateFactory(fruit string) (product Product) {
 	//根据不同的语言种类，实例化不同的翻译类
 	switch fruit {
 	case "apple":
-		factory = new(Apple)
+		product = new(Apple)
 	case "banana":
-		factory = new(Banana)
+		product = new(Banana)
 	default:
-		panic("no such translator")
+		panic("Unknown product")
 	}
 
 	return
@@ -44,4 +44,7 @@ func main() {
 
 	banana := CreateFactory("banana")
 	banana.Produce()
+
+	unknow := CreateFactory("unknow")
+	unknow.Produce()
 }
