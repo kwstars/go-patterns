@@ -17,3 +17,5 @@ func main() {
 	httpCode, body = nginxServer.handleRequest(createuserURL, "GET")
 	fmt.Printf("\nUrl: %s\nHttpCode: %d\nBody: %s\n", appStatusURL, httpCode, body)
 }
+
+将对象隐藏在代理后面，以便可以隐藏，限制功能等
