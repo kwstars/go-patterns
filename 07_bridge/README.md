@@ -8,3 +8,6 @@
 ## 应用场景
 - 一个产品（或对象）有多种分类和多种组合，即两个（或多个）独立变化的维度，每个维度都希望独立进行扩展。
 - 因为使用继承或因为多层继承导致系统类的个数急剧增加的系统，可以改用桥接模式来实现。
+
+---
+> [Bridge Design Pattern in Go (Golang)](https://golangbyexample.com/bridge-design-pattern-in-go/)
