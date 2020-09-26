@@ -2,31 +2,18 @@ package main
 
 import "fmt"
 
-type Subject interface {
-	Do() string
-}
-
-type RealSubject struct{}
-
-func (r RealSubject) Do() string {
-	return "real"
-}
-
-type Proxy struct {
-	real RealSubject
-}
-
-func (p Proxy) Do() string {
-	var res string
-	res += "pre:"
-	res += p.real.Do()
-	res += ":after"
-	return res
-}
-
 func main() {
-	sub := Proxy{}
-	do := sub.Do()
-
-	fmt.Println(do)
+	nginxServer := newNginxServer()
+	appStatusURL := "/app/status"
+	createuserURL := "/create/user"
+	httpCode, body := nginxServer.handleRequest(appStatusURL, "GET")
+	fmt.Printf("\nUrl: %s\nHttpCode: %d\nBody: %s\n", appStatusURL, httpCode, body)
+	httpCode, body = nginxServer.handleRequest(appStatusURL, "GET")
+	fmt.Printf("\nUrl: %s\nHttpCode: %d\nBody: %s\n", appStatusURL, httpCode, body)
+	httpCode, body = nginxServer.handleRequest(appStatusURL, "GET")
+	fmt.Printf("\nUrl: %s\nHttpCode: %d\nBody: %s\n", appStatusURL, httpCode, body)
+	httpCode, body = nginxServer.handleRequest(createuserURL, "POST")
+	fmt.Printf("\nUrl: %s\nHttpCode: %d\nBody: %s\n", appStatusURL, httpCode, body)
+	httpCode, body = nginxServer.handleRequest(createuserURL, "GET")
+	fmt.Printf("\nUrl: %s\nHttpCode: %d\nBody: %s\n", appStatusURL, httpCode, body)
 }
