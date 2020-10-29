@@ -90,6 +90,24 @@
 
 **21 命令模式（Command 不常用）**
 
+![](http://www.plantuml.com/plantuml/png/X96nRjH048RxVOefan1VH6kTB9I8WWOa10-mNi_bbgntpEpum0Jw22b854WKDAIYIWiDRuCZ7eFOjsiT1a6rdfb_lfb_V2-8PcbhfupJ8S29i-W5pjKRvKaGX1gWLKpdq5zVtLny1T5d-8WhP1NR7lWDdI7VzW406AfhxIiusRvZxWxGqF2qsTkFSK29WhtOi3-R6gavt7owxDz-xjz_J12bh1VabJQOfi1vvE9BDAtWtaGhIOJg0HYbEVoylkelFwXachnX5FoTn6ZGRf3XSVpuax-xHb9DUsWZblpVraZI7FftN_fl5_Cz_eLIQcqh1AmRwQ36kaGEIiNVbXNfPYg-S91boNRA3RAPPJMBOR5uNKnzyxssrHIfAPrb1_y3xywU06fx81tWuTtHyR8ibeOSSSxKQNViMYmYO7aq5ehbKLaaxPEkmNn8m36kzSOIQpVMxdkZcz0wFT21yNcBGOOvsWELpz38uQYJDJAM7JWKiVuKEcgXqQnh56Jx2i6CzmsZ-8MLDLHsjK96BuaQ3k7sRH68mT7feDmf3Sv3spJ40gslI9SEWHfaFVpOi539oe_llteeczGEOI2Ax_-dwcLwZvWMMcbKbBH-OB62gIvgTIMj7tWOdKbSzGeT2GXP_F9u8UybCBcM3KG2Hdb2FcBQNLqnwKZ4TuL-3Sy3XCi-LJfxHBSsfVYR1NOIFZa1p1nRjJ47fi6i1G7wqP4KrcaFdc9K7P8TJnuusIL2cm1lhgsUKilckuVb5MC5QwnRbnPTPDOKNO-2MGys9So1ULWW254e_VAr_p2CF_PHs6gK5l8Uttutnc_tz2pdrz_kY6W8_GC0)
+
+`当需要将发出请求的对象和执行请求的对象解耦的时候，使用命令模式`
+
+将请求封装成对象，这可以让你使用不同的请求、队列或日志请求来参数化其他对象。命令模式也可以支持撤销操作。
+
+
+
+**要点**
+
+- 命令模式将发出请求的对象和执行请求的对象解耦
+- 在被解耦的两者之间是通过命令对象进行沟通的。命令对象封装了接收者和一个或一组动作。
+- 调用者通过调用命令对象的execute()发出请求，这会使得接收者的动作被调用。
+- 调用者可以接受命令当作参数，甚至在运行时动态地进行。
+- 命令可以支持撤销，做法是实现一个undo()方法来回到execute()被执行前的状态。
+- 宏命令是命令的一种简单的延伸，允许调用多个命令。宏方法也可以支持撤销。
+- 实际操作时，很常见使用“聪明”命令对象，也就是直接实现了请求，而不是将工作委托给接收者。
+- 命令也可以用来实现日志和事物系统。
 
 
 **22 解释器模式（Interpreter 不常用）**
